@@ -13,8 +13,28 @@ document.getElementById('chooseImageButton').addEventListener('click', function 
     await processImage(imageFile);
 
   });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const copyButton = document.getElementById('copyButton');
+    copyButton.addEventListener('click', copyText);
   
-//   document.getElementById('copyButton').addEventListener('click', copyToClipboard);
+    function copyText(event) {
+      if (event.target === copyButton) {
+        const resultTextbox = document.getElementById('result');
+        resultTextbox.select();
+        resultTextbox.setSelectionRange(0, 99999); 
+        navigator.clipboard.writeText(resultTextbox.value)
+          .then(() => {
+            alert('Text has been copied to the clipboard');
+          })
+          .catch((err) => {
+            console.error('Unable to copy text: ', err);
+          });
+
+        window.getSelection().removeAllRanges();
+      }
+    }
+  });
 
   async function processImage(imageFile) {
     const apiEndpoint = ENDPOINT; 
@@ -58,5 +78,24 @@ document.getElementById('chooseImageButton').addEventListener('click', function 
     }
   }
   
-
+  function copyText() {
+    const resultTextbox = document.getElementById('result');
   
+    resultTextbox.select();
+    resultTextbox.setSelectionRange(0, 99999); 
+  
+  
+    navigator.clipboard.writeText(resultTextbox.value)
+      .then(() => {
+   
+        alert('Text has been copied to the clipboard');
+      })
+      .catch((err) => {
+        console.error('Unable to copy text: ', err);
+      });
+  
+ 
+    window.getSelection().removeAllRanges();
+  }
+ 
+
