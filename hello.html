@@ -1,5 +1,26 @@
-<html>
-  <body>
-    <h1>Hello Extensions</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Text Extractor</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <label for="imageInput" class="file-label">
+      <input type="file" id="imageInput" accept="image/*" style="display: none;">
+      <span class="file-btn" onclick="document.getElementById('imageInput').click()">Choose Image</span>
+    </label>
+    <button onclick="processImage()" class="extract-btn">Extract Text</button>
+
+    <div class="textbox-container">
+      <input type="text" id="result" class="result-text" readonly>
+      <button onclick="copyToClipboard()" class="copy-btn">Copy</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
 </html>
