@@ -9,16 +9,20 @@
 </head>
 <body>
   <div class="container">
+    <div class="preloader" id="preloader"></div>
     <label for="imageInput" class="file-label">
       <input type="file" id="imageInput" accept="image/*" style="display: none;">
-      <span class="file-btn" onclick="document.getElementById('imageInput').click()">Choose Image</span>
+      <span class="file-btn" id="chooseImageButton">Choose Image</span>
     </label>
-    <button onclick="processImage()" class="extract-btn">Extract Text</button>
 
     <div class="textbox-container">
       <input type="text" id="result" class="result-text" readonly>
-      <button onclick="copyToClipboard()" class="copy-btn">Copy</button>
+      <button id="copyButton">Copy</button>
     </div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div id="preloader" class="preloader"></div>
   </div>
 
   <script src="popup.js"></script>

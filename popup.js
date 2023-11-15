@@ -1,37 +1,43 @@
-function processImage() {
-    var fileInput = document.getElementById('imageInput');
-    var resultTextbox = document.getElementById('result');
-    
-    var file = fileInput.files[0];
-    if (!file) {
-      resultTextbox.value = 'Please select an image.';
-      return;
-    }
-    
-    var formData = new FormData();
-    formData.append('file', file);
-    
-    fetch('http://your-python-api-url/process_image', {
-      method: 'POST',
+const ENDPOINT = "http://127.0.0.1:8000";
+
+document.getElementById('chooseImageButton').addEventListener('click', function (event) {
+    event.preventDefault();
+    document.getElementById('imageInput').click();
+  });
+  
+  document.getElementById('imageInput').addEventListener('change', async function () {
+    const imageFile = this.files[0];
+    console.log(imageFile)
+    document.getElementById('preloader').style.display = 'block';
+    await processImage(imageFile);
+
+  });
+  
+  document.getElementById('copyButton').addEventListener('click', copyToClipboard);
+  async function processImage(imageFile) {
+    const apiEndpoint = 'ENDPOINT'; 
+    const formData = new FormData();
+    formData.append('img', imageFile, imageFile.name);
+    const requestOptions = {
+      method: 'POST', 
       body: formData,
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.error) {
-          resultTextbox.value = 'Error: ' + data.error;
-        } else {
-          resultTextbox.value = data.text;
-        }
-      })
-      .catch(error => {
-        resultTextbox.value = 'Error: ' + error.message;
-      });
+      redirect: 'follow',
+    };
+  
+    try {
+      const response = await fetch(apiEndpoint, requestOptions);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const result = await response.text();
+      console.log(result); 
+      document.getElementById('result').value = result;
+    } catch (error) {
+      console.log('error', error);
+   
+    }
   }
   
-  function copyToClipboard() {
-    var resultTextbox = document.getElementById('result');
-    
-    resultTextbox.select();
-    document.execCommand('copy');
-  }
+
   
