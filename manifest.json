@@ -1,26 +1,26 @@
 {
   "manifest_version": 2,
-  "name": "Image Text Extractor",
+  "name": "Blast OCR",
   "version": "1.0",
   "description": "Extract text from images",
-  "permissions": ["activeTab", "storage", "http://your-python-api-url/"],
+  "permissions": ["activeTab", "storage", "http://127.0.0.1:8000/recognize"],
   "browser_action": {
     "default_icon": {
-      "16": "icon.png",
-      "48": "icon.png",
-      "128": "icon.png"
+      "16": "img/icon.png",
+      "48": "img/icon.png",
+      "128": "img/icon.png"
     },
     "default_popup": "popup.html"
   },
   "icons": {
-    "16": "icon.png",
-    "48": "icon.png",
-    "128": "icon.png"
+    "16": "img/icon.png",
+    "48": "img/icon.png",
+    "128": "img/icon.png"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "js": ["scripts/popup.js"]
     }
   ]
 }

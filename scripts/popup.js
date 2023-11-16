@@ -24,9 +24,7 @@ document.getElementById('chooseImageButton').addEventListener('click', function 
         resultTextbox.select();
         resultTextbox.setSelectionRange(0, 99999); 
         navigator.clipboard.writeText(resultTextbox.value)
-          .then(() => {
-            alert('Text has been copied to the clipboard');
-          })
+          
           .catch((err) => {
             console.error('Unable to copy text: ', err);
           });
@@ -88,7 +86,7 @@ document.getElementById('chooseImageButton').addEventListener('click', function 
     navigator.clipboard.writeText(resultTextbox.value)
       .then(() => {
    
-        alert('Text has been copied to the clipboard');
+        
       })
       .catch((err) => {
         console.error('Unable to copy text: ', err);

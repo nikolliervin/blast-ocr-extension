@@ -32,7 +32,7 @@ body {
   }
   
   .file-btn {
-    background-color: #3498db;
+    background-color: #4F0FA3;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -43,11 +43,11 @@ body {
   }
   
   .file-btn:hover {
-    background-color: #2980b9;
+    background-color: #5f24ac;
   }
   
   .extract-btn, .copy-btn {
-    background-color: #2ecc71;
+    background-color: #4F0FA3;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -59,7 +59,7 @@ body {
   }
   
   .extract-btn:hover, .copy-btn:hover {
-    background-color: #27ae60;
+    background-color: #5f24ac;
   }
   
   .textbox-container {
@@ -98,7 +98,7 @@ body {
   }
   
   .copy-btn {
-    background-color: #2ecc71;
+    background-color: #5f24ac;
     color: #fff;
     padding: 10px;
     border: none;
@@ -110,7 +110,7 @@ body {
   }
   
   .copy-btn:hover {
-    background-color: #27ae60;
+    background-color: #622baa;
     border: none;
   }
   
