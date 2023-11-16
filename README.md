@@ -2,7 +2,7 @@
 
 # Blast OCR Chrome Extension
 
-The Blast OCR Chrome Extension allows you to extract text from images using the Blast OCR API (Repo: https://github.com/nikolliervin/blast). Simply upload an image from your computer, and the extension will send the image to the Blast OCR API for processing, returning the extracted text.
+The Blast OCR Chrome Extension allows you to extract text from images using the [Blast OCR API Repository](https://github.com/nikolliervin/blast). Simply upload an image from your computer, and the extension will send the image to the Blast OCR API for processing, returning the extracted text.
 
 
 ## How to Use
